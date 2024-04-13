@@ -1,0 +1,19 @@
+body{
+    margin: 0;
+    background-color: #6C6B68;
+}
+
+.title{
+    font-size: 5vw;
+    font-family: "Platypi",Verdana, arial, serif;
+    color: #9CA5B1; 
+    margin-left: 1vw;
+}
+
+.statistics{
+    font-size: 2vw;
+    font-family: Verdana, arial, Tahoma, sans-serif;
+    width: 75%;
+    color: #D5D0C4;
+    margin: 1vw 0 0 3vw;
+}
