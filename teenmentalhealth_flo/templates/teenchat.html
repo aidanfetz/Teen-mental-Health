@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Teen_Mental_Help</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Teen Mental Help">
+  <meta name="keywords" content="Teen, Mental, Health, Help, chat, therapy, peer, talk">
+  <meta name="author" content="Aidan Fetz">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/topnavstyle.css">
+  <link rel="stylesheet" href="styles/clearfix.css">
+  <link rel="stylesheet" href="styles/messagestyle.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <script src="scripts/io.js"></script>
+    <script type="text/javascript">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('message', function(msg) {
+            var ul = document.getElementById("messages");
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(msg));
+            ul.appendChild(li);
+        });
+
+        function sendMessage() {
+            var msg = document.getElementById("message_input").value;
+            socket.send(msg);
+            document.getElementById("message_input").value = '';
+        }
+
+        
+    </script>
+
+</head>
+<body>
+    <div class="header">
+        <div class="headimg"><img src="images/pbllogo.png" alt="company logo"></div>
+        <div class="headtext"><span><a href="teenmentalhealth.html">Teen Mental Help</a></span></div>
+        <div class="headnav">
+            <ul>
+                <li><a id="nava">Chat</a></li>
+                <li><a id="navb" href="https://www.betterhelp.com/get-started/?go=true&utm_content=133524759310&utm_source=AdWords&utm_medium=Search_PPC_c&utm_term=betterhelp_b&network=g&placement=&target=&matchtype=b&utm_campaign=15234220559&ad_type=text&adposition=&kwd_id=kwd-299033048821&gad_source=1&gclid=CjwKCAjwt-OwBhBnEiwAgwzrUuR5I8hr9hCq-0RYY11CcEjaBBA2fLOHt7ii_-onrHHC6xMD4HKtMhoC33gQAvD_BwE&not_found=1&gor=start">Therapy</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="message">
+        <div id="messages" class="messagebox"></div>
+        <div class="clearfix"></div>
+        <div class="inputs">
+        <input type="text" id="message_input" placeholder="Message Here">
+        <input type="submit" id="inb" onclick="sendMessage()">
+        </div>
+    </div>
+    <div class="usersactive" id="activeuser">
+        <div class="labeluser"><label>Active Users</label></div>
+    </div>
+    <input type="text" name="username" value="" id="name" required>
+    <input type="password" name="password" id="password" required>
+    <button type="submit">Submit</button>
+</body>
+</html>
